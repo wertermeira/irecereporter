@@ -1,50 +1,55 @@
-name: Rails Tests
-
-on:
-  pull_request:
-    branches:
-      - 'master'
-  push:
-    branches:
-      - 'master'
-
+name: CI
+on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     services:
       postgres:
-        image: postgres:11.5
-        ports: ["5432:5432"]
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Set up Ruby 2.6
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: 2.6.x
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.5.8
 
-    - name: Install PostgreSQL 11 client
-      run: |
-        sudo apt-get -yqq install libpq-dev
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
 
-    - name: Build App
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        RAILS_ENV: test
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
-        bin/rails db:
+      - name: Bundle install
+        run: |
+          gem install bundler -v '1.17.3'
+          bundle install --jobs 4 --retry 3
 
-    - name: Run Tests
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        RAILS_ENV: test
-      run: |
-        bundle exec rubocop
-        bundle exec rspec
+      - name: Setup Database
+        run: |
+          cp config/database.yml.github-actions config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+
+      - name: Run Brakeman
+        run: bundle exec brakeman
+        env:
+          RAILS_ENV: test
+
+      - name: Run Rubocop
+        run: bundle exec rubocop
+        env:
+          RAILS_ENV: test
+
+      - name: Run RSpec
+        run: bundle exec rspec
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
