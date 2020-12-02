@@ -18,7 +18,7 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
     - 'db/seeds.rb'
-  TargetRubyVersion: 2.5.5
+  TargetRubyVersion: 2.5.8
 
 Style/FrozenStringLiteralComment:
   Enabled: false
