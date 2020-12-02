@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
-
 # project gems
 # https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.4.0'
