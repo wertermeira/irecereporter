@@ -23,9 +23,7 @@ jobs:
         run: sudo apt-get install libpq-dev
 
       - name: Bundle install
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
+        run: bundle install --jobs 4 --retry 3
 
       - name: Setup Database
         run: |
