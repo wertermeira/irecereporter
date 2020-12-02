@@ -3,10 +3,9 @@ module Backoffice
     before_action :set_page, only: %i[show edit update destroy]
 
     def index
-      @page = Page.all
+      @q = Page.ransack(params[:q])
+      @pages = @q.result.page(params[:page]).per(params[:size])
     end
-
-    def show; end
 
     def new
       @page = Page.new
