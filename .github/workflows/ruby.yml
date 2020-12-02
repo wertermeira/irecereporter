@@ -3,6 +3,10 @@ on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: [ '2.5.1' ]
+    name: Ruby ${{ matrix.ruby }} sample
     services:
       postgres:
         image: postgres:11
@@ -17,7 +21,7 @@ jobs:
 
       - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.5
+          ruby-version: ${{ matrix.ruby }}
 
       - name: Install dependent libraries
         run: sudo apt-get install libpq-dev
