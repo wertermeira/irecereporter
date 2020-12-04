@@ -1,6 +1,6 @@
 module Backoffice
   class PagesController < ApplicationController
-    before_action :set_page, only: %i[show edit update destroy]
+    before_action :set_page, only: %i[edit update destroy]
 
     def index
       @q = Page.ransack(params[:q])
