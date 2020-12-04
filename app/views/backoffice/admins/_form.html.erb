@@ -1,0 +1,9 @@
+<%= simple_form_for([:backoffice, @admin]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password, as: :password %>
+  <%= f.input :password_confirmation, as: :password %>
+  <%= f.input :profile, as: :radio_buttons, collection: [['admin', 'Admin'],['editor', 'Editor'], ['visitor', 'Visitante']], label_method: :second, value_method: :first %>
+  <%= f.input :active, as: :boolean %>
+  <%= f.button :submit, class: 'btn-success' %>
+<% end %>
