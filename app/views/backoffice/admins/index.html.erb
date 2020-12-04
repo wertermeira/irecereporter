@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :name, 'Nome', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :email, 'E-mail', default_order: :desc) %></th>
+      <th scope="col" class='text-center'>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <th scope="row"><%= admin.id %></th>
+        <td><%= admin.name %></td>
+        <td><%= admin.email %></td>
+        <td class='text-center'>
+            <%= link_to 'Ver', backoffice_admin_path(admin), class: 'btn btn-success btn-sm' %>
+            <%= link_to 'Editar', edit_backoffice_admin_path(admin), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Excluir', backoffice_admin_path(admin), method: :delete, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @admins %>
+</div>

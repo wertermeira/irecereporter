@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
-      <th scope="col"><%= sort_link(@q, :name, 'Name', default_order: :desc) %></th>
-      <th scope="col">Ações</th>
+      <th scope="col"><%= sort_link(@q, :name, 'Nome', default_order: :desc) %></th>
+      <th scope="col" class='text-center'>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -11,8 +11,10 @@
       <tr>
         <th scope="row"><%= page.id %></th>
         <td><%= page.name %></td>
-        <td><%= link_to 'Editar', edit_backoffice_page_path(page), class: 'btn btn-primary btn-sm' %></td>
-        <td><%= link_to 'Excluir', backoffice_page_path(page), method: :delete, class: 'btn btn-danger btn-sm' %></td>
+        <td class='text-center'>
+            <%= link_to 'Editar', edit_backoffice_page_path(page), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Excluir', backoffice_page_path(page), method: :delete, class: 'btn btn-danger btn-sm' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
