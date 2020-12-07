@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_141701) do
     t.text "body"
     t.text "summary"
     t.boolean "active", default: false
-    t.boolean "feature", default: false
+    t.boolean "feature_post", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["page_id"], name: "index_posts_on_page_id"

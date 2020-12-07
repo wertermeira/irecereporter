@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.text :body
       t.text :summary
       t.boolean :active, default: false
-      t.boolean :feature, default: false
+      t.boolean :feature_post, default: false
 
       t.timestamps
     end
