@@ -11,6 +11,7 @@ gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'kaminari'
 gem 'ransack'
+gem 'active_storage_validations'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
