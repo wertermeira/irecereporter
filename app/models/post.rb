@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
 
+  scope :published, -> { where(active: true) }
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

@@ -17,6 +17,14 @@ RSpec.describe Post, type: :model do
     it { is_expected.to have_many(:categories).through(:post_categories) }
   end
 
+  context 'when validation scope published' do
+    before do
+      create_list(:post, 10, active: %w[true false].sample)
+    end
+
+    it { expect(described_class.published.count).to eq(described_class.where(active: true).count) }
+  end
+
   context 'when validation fields' do
     %i[name body].each do |field|
       it { is_expected.to validate_presence_of(field) }
