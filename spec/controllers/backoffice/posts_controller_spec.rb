@@ -35,12 +35,6 @@ RSpec.describe Backoffice::PostsController, type: :controller do
       get :show, params: { id: 'notfoundid' }
       expect(response).to have_http_status(:not_found)
     end
-
-    it 'returns http nof found (not published)' do
-      post.update(active: false)
-      get :show, params: { id: post.slug }
-      expect(response).to have_http_status(:not_found)
-    end
   end
 
   describe '#new' do
