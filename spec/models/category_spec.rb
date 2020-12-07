@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Page, type: :model do
+RSpec.describe Category, type: :model do
   context 'when db schema' do
     let(:model) { described_class.column_names }
 
@@ -11,8 +11,9 @@ RSpec.describe Page, type: :model do
     end
   end
 
-  context 'when associations' do
-    it { is_expected.to have_many(:posts).dependent(:nullify) }
+  context 'when associatios' do
+    it { is_expected.to have_many(:post_categories).dependent(:destroy) }
+    it { is_expected.to have_many(:posts).through(:post_categories) }
   end
 
   context 'when validation' do

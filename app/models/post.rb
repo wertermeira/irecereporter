@@ -1,4 +1,9 @@
 class Post < ApplicationRecord
+  belongs_to :page, optional: true
+
+  has_many :post_categories, dependent: :destroy
+  has_many :categories, through: :post_categories
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

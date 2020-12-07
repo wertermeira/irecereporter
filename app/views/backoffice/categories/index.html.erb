@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :name, 'Name', default_order: :desc) %></th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <th scope="row"><%= category.id %></th>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Editar', edit_backoffice_category_path(category), class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Excluir', backoffice_category_path(category), method: :delete, class: 'btn btn-danger btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @categories %>
+</div>

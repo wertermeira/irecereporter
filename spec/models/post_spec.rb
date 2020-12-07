@@ -11,6 +11,12 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  context 'when association' do
+    it { is_expected.to belong_to(:page).optional }
+    it { is_expected.to have_many(:post_categories).dependent(:destroy) }
+    it { is_expected.to have_many(:categories).through(:post_categories) }
+  end
+
   context 'when validation fields' do
     %i[name body].each do |field|
       it { is_expected.to validate_presence_of(field) }

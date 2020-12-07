@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :admins
     resources :pages, except: :show 
+    resources :categories, except: :show 
   end
 end
