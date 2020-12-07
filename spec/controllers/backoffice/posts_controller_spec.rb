@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::PostsController, type: :controller do
-  let(:category_count) { rand(2..10) }
-  let(:categories) { create_list(:category, category_count) }
+  let(:tags) { [] }
+  let(:random_number) { rand(2..10) }
+  let(:categories) { create_list(:category, random_number) }
   let(:attributes) do
     {
       name: Faker::Lorem.sentence(word_count: 3),
@@ -51,6 +52,12 @@ RSpec.describe Backoffice::PostsController, type: :controller do
   end
 
   describe '#create' do
+    before do
+      random_number.times do
+        tags << Faker::Name.unique.name
+      end
+    end
+
     context 'when created' do
       it 'created' do
         expect  do
@@ -58,9 +65,14 @@ RSpec.describe Backoffice::PostsController, type: :controller do
         end.to change(Post, :count).by(1)
       end
 
+      it 'created with tags' do
+        post :create, params: { post: attributes.merge(tag_list: tags.join(',')) }
+        expect(Post.last.tags.count).to eq(random_number)
+      end
+
       it 'created with categories' do
         post :create, params: { post: attributes }
-        expect(Post.last.categories.count).to eq(category_count)
+        expect(Post.last.categories.count).to eq(random_number)
       end
 
       it 'redirect to posts' do

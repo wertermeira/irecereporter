@@ -10,6 +10,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'active_storage_validations'
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'kaminari'
 gem 'ransack'
 # end
