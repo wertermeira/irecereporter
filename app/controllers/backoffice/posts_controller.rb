@@ -1,6 +1,18 @@
 module Backoffice
   class PostsController < ApplicationController
-    def new; end
+    before_action :set_post, only: %i[update edit show destroy]
+    before_action :set_categories, only: %i[edit new create update]
+
+    def index
+      @q = Post.ransack(params[:q])
+      @posts = @q.result.page(params[:page]).per(params[:size])
+    end
+
+    def show; end
+    
+    def new
+      @post = Post.new
+    end
 
     def create
       @post = Post.new(post_params)
@@ -11,7 +23,30 @@ module Backoffice
       end
     end
 
+    def edit; end
+
+    def update
+      if @post.update(post_params)
+        redirect_to backoffice_posts_path, notice: I18n.t('controller.messages.success.update')
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @post.destroy
+      redirect_to backoffice_posts_path, notice: I18n.t('controller.messages.success.destry')
+    end
+
     private
+
+    def set_post
+      @post = Post.friendly.find(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all.order(name: :asc)
+    end
 
     def post_params
       params.require(:post).permit(:name, :subname, :headline,

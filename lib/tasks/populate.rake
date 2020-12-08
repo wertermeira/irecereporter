@@ -8,6 +8,15 @@ namespace :populate do
     end
   end
 
+
+  desc 'Populete categoies'
+  task categories: :environment do
+    rand(10..30).times do
+      category = create(:category)
+      p category.name
+    end
+  end
+
   desc 'Populete Admins'
   task admins: :environment do
     rand(20..50).times do
