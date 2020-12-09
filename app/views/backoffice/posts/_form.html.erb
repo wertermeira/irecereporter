@@ -15,5 +15,6 @@
   <% if @post.cover.attached? %>
     <%= image_tag(url_for(@post.cover.variant(resize: "120x120"))) %>
   <% end %>
+  <%= f.input :tag_list, :input_html => {:class => "mytags bootstrap-tagsinput", :value => @post.tag_list.join(", ") }, :data => {role: "tagsinput"} %>
   <%= f.button :submit, class: 'btn-success' %>
 <% end %>

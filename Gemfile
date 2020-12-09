@@ -11,6 +11,7 @@ gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'active_storage_validations'
 gem 'mini_magick'
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'kaminari'
 gem 'ransack'
 # end
