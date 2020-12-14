@@ -1,7 +1,7 @@
 module Backoffice
   class PostsController < ApplicationController
     before_action :set_post, only: %i[update edit show destroy]
-    before_action :set_categories, only: %i[edit new create update]
+    before_action :set_categories_and_pages, only: %i[edit new create update]
 
     def index
       @q = Post.ransack(params[:q])
@@ -44,14 +44,15 @@ module Backoffice
       @post = Post.friendly.find(params[:id])
     end
 
-    def set_categories
+    def set_categories_and_pages
       @categories = Category.all.order(name: :asc)
+      @pages = Page.all.order(name: :asc)
     end
 
     def post_params
       params.require(:post).permit(:name, :subname, :headline,
                                    :cover, :image, :body, :active,
-                                   :feature_post, :summary, :tag_list, category_ids: [])
+                                   :feature_post, :summary, :tag_list, :page_id, category_ids: [])
     end
   end
 end

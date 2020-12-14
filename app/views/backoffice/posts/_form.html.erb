@@ -1,13 +1,9 @@
+
+<%= javascript_include_tag Ckeditor.cdn_url %>
 <%= simple_form_for([:backoffice, @post], html: { multipart: true } ) do |f| %>
-  <%= f.input :category_ids, collection: @categories, input_html: { multiple: true } %>
-  <%= f.input :name %>
-  <%= f.input :subname %>
-  <%= f.input :headline %>
-  <%= f.input :summary, as: :text %>
-  <%= f.input :body, as: :text %>
-  <%= f.input :active, as: :boolean %>
-  <%= f.input :feature_post, as: :boolean %>
-  <%= f.input :image, as: :file %>
+  <%= f.association :page, collection: @pages, prompt: 'Selecione uma página', include_blank: true %>
+  <%= f.association :categories, collection: @categories, input_html: { multiple: true } %>
+    <%= f.input :image, as: :file %>
   <% if @post.image.attached? %>
     <%= image_tag(url_for(@post.image.variant(resize: "120x120"))) %>
   <% end %>
@@ -15,6 +11,13 @@
   <% if @post.cover.attached? %>
     <%= image_tag(url_for(@post.cover.variant(resize: "120x120"))) %>
   <% end %>
+  <%= f.input :name %>
+  <%= f.input :subname %>
+  <%= f.input :headline %>
+  <%= f.input :summary, as: :text %>
+  <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full', height: 400 } } %>
+  <%= f.input :active, as: :boolean %>
+  <%= f.input :feature_post, as: :boolean %>
   <%= f.input :tag_list, :input_html => {:class => "mytags bootstrap-tagsinput", :value => @post.tag_list.join(", ") }, :data => {role: "tagsinput"} %>
   <%= f.button :submit, class: 'btn-success' %>
 <% end %>

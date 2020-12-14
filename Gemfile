@@ -14,6 +14,7 @@ gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'kaminari'
 gem 'ransack'
+gem 'ckeditor'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
