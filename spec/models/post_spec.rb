@@ -28,13 +28,13 @@ RSpec.describe Post, type: :model do
   end
 
   context 'when validation images' do
-   let(:type_allow) { %w[image/png image/gif image/jpg image/jpeg] }
+    let(:type_allow) { %w[image/png image/gif image/jpg image/jpeg] }
 
-   %i[image cover].each do |field|
-    it { is_expected.to validate_size_of(field).less_than(4.megabytes) }
-    it { is_expected.to validate_size_of(field)}
-    it { is_expected.to validate_content_type_of(field).allowing(type_allow) }
-    it { is_expected.not_to validate_content_type_of(field).allowing(%w[image/tif doc/pdf]) }
-   end
+    %i[image cover].each do |field|
+      it { is_expected.to validate_size_of(field).less_than(4.megabytes) }
+      it { is_expected.to validate_size_of(field) }
+      it { is_expected.to validate_content_type_of(field).allowing(type_allow) }
+      it { is_expected.not_to validate_content_type_of(field).allowing(%w[image/tif doc/pdf]) }
+    end
   end
 end

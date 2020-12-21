@@ -7,6 +7,7 @@ FactoryBot.define do
     summary { Faker::Lorem.sentence(word_count: 5) }
     active { true }
     feature { %w[true false].sample }
+
     before :create do |post|
       post.category_ids = create_list(:category, rand(2..10)).pluck(:id)
     end

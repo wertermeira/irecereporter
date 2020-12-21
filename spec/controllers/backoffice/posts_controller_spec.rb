@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Backoffice::PostsController, type: :controller do
   let(:categories) { create_list(:category, rand(2..10)) }
-  let(:attributes) {
+  let(:attributes) do
     {
       name: Faker::Lorem.sentence(word_count: 3),
       subname: Faker::Lorem.sentence(word_count: 3),
@@ -13,7 +13,8 @@ RSpec.describe Backoffice::PostsController, type: :controller do
       feature: %w[true false].sample,
       category_ids: categories.pluck(:id)
     }
-  }
+  end
+
   describe '#create' do
     context 'when created' do
       it 'created' do

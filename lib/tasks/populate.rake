@@ -14,4 +14,12 @@ namespace :populate do
       create(:admin)
     end
   end
+
+  desc 'Populete banners'
+  task banners: :environment do
+    rand(20..50).times do
+      banner = create(:banner)
+      p banner
+    end
+  end
 end

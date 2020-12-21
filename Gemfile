@@ -9,9 +9,9 @@ gem 'friendly_id', '~> 5.4.0'
 # https://github.com/heartcombo/simple_form
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
+gem 'active_storage_validations'
 gem 'kaminari'
 gem 'ransack'
-gem 'active_storage_validations'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
