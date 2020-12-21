@@ -15,6 +15,8 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'kaminari'
 gem 'ransack'
 gem 'ckeditor'
+# Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML cod
+gem 'youtube_rails'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

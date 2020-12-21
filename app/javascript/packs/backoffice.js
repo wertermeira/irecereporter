@@ -3,8 +3,13 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require("jquery")
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("bootstrap4-toggle/js/bootstrap4-toggle.min.js")
+require("tagsinput")
+require("select2")
+require("custom")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

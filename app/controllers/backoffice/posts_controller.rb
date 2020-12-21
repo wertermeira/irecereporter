@@ -1,5 +1,5 @@
 module Backoffice
-  class PostsController < ApplicationController
+  class PostsController < BackofficeController
     before_action :set_post, only: %i[update edit show destroy]
     before_action :set_categories_and_pages, only: %i[edit new create update]
 
@@ -51,7 +51,7 @@ module Backoffice
 
     def post_params
       params.require(:post).permit(:name, :subname, :headline,
-                                   :cover, :image, :body, :active,
+                                   :cover, :image, :body, :active, :url_video,
                                    :feature_post, :summary, :tag_list, :page_id, category_ids: [])
     end
   end

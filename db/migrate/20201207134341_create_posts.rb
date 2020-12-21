@@ -8,6 +8,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :headline
       t.text :body
       t.text :summary
+      t.string :url_video
       t.boolean :active, default: false
       t.boolean :feature_post, default: false
 

@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_123051) do
     t.string "headline"
     t.text "body"
     t.text "summary"
+    t.string "url_video"
     t.boolean "active", default: false
     t.boolean "feature_post", default: false
     t.datetime "created_at", precision: 6, null: false

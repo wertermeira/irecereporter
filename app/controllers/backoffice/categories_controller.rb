@@ -1,5 +1,5 @@
 module Backoffice
-  class CategoriesController < ApplicationController
+  class CategoriesController < BackofficeController
     before_action :set_category, only: %i[show edit update destroy]
 
     def index

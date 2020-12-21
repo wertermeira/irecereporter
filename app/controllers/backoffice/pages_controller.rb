@@ -1,5 +1,5 @@
 module Backoffice
-  class PagesController < ApplicationController
+  class PagesController < BackofficeController
     before_action :set_page, only: %i[edit update destroy]
 
     def index
