@@ -1,8 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :page, optional: true
 
+  acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :interests
+
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
+
+  scope :published, -> { where(active: true) }
 
   extend FriendlyId
   friendly_id :name, use: :slugged

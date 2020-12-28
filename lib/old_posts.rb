@@ -4,7 +4,7 @@ class OldPosts
       client.query("SELECT * FROM posts ORDER BY id desc LIMIT #{limit}")
     end
   
-    def categories_by_post(id:)
+    def categories_by_post(id)
       sql_query = "SELECT * FROM post_category_assn INNER JOIN categories ON categories.id = post_category_assn.category_id WHERE post_category_assn.post_id = #{id}"
       client.query(sql_query)
     end

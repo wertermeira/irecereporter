@@ -1,0 +1,8 @@
+<div class='body'>
+<h1><%= @post.name %></h1>
+<%= content_tag(:h2, @post.headline) if @post.headline.present? %>
+<%= content_tag(:summary, @post.summary) if @post.summary.present? %>
+<%= image_tag(url_for(@post.cover), class: 'img-fluid') if @post.cover.attached? %>
+<div class='text'><%= @post.body.html_safe %></div>
+<%= content_tag(:span, "Categorias: #{@post.categories.pluck(:name).join(', ')}") if @post.categories.present? %>
+</div>
