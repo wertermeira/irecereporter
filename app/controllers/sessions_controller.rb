@@ -9,8 +9,8 @@ class SessionsController < BackofficeController
   def create
     @validation = LoginValidation.new(session_params)
     if @validation.valid?
-      user = Admin.find_by(email: session_params.dig('email').downcase)
-      return login_success(user) if user.authenticate(session_params.dig('password'))
+      user = Admin.find_by(email: session_params[:email].downcase)
+      return login_success(user) if user.authenticate(session_params[:password])
 
       @validation.errors.add(:password, 'Senha incorreta')
     end
