@@ -1,69 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::PostsController, type: :controller do
-  let(:post_item) { create(:post) }
-  let(:name) { Faker::Lorem.sentence(word_count: 3) }
-  let(:tags) { [] }
-  let(:random_number) { rand(2..10) }
-  let(:categories) { create_list(:category, random_number) }
+  let(:categories) { create_list(:category, rand(2..10)) }
   let(:attributes) do
     {
-      name: name,
+      name: Faker::Lorem.sentence(word_count: 3),
       subname: Faker::Lorem.sentence(word_count: 3),
       headline: Faker::Lorem.sentence(word_count: 1),
       body: Faker::Lorem.sentence(word_count: 10),
       summary: Faker::Lorem.sentence(word_count: 5),
       active: %w[true false].sample,
-      feature_post: %w[true false].sample,
+      feature: %w[true false].sample,
       category_ids: categories.pluck(:id)
     }
   end
 
-  describe '#index' do
-    context 'when is success' do
-      it 'returns http success' do
-        get :index
-        expect(response).to have_http_status(:success)
-      end
-    end
-  end
-
-  describe '#show' do
-    it 'returns http success' do
-      get :show, params: { id: post_item.slug }
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe '#new' do
-    it 'returns http success' do
-      get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe '#create' do
-    before do
-      random_number.times do
-        tags << Faker::Name.unique.name
-      end
-    end
-
     context 'when created' do
       it 'created' do
         expect  do
           post :create, params: { post: attributes }
         end.to change(Post, :count).by(1)
-      end
-
-      it 'created with tags' do
-        post :create, params: { post: attributes.merge(tag_list: tags.join(',')) }
-        expect(Post.last.tags.count).to eq(random_number)
-      end
-
-      it 'created with categories' do
-        post :create, params: { post: attributes }
-        expect(Post.last.categories.count).to eq(random_number)
       end
 
       it 'redirect to posts' do
@@ -76,46 +33,6 @@ RSpec.describe Backoffice::PostsController, type: :controller do
       attributes[:name] = ''
       post :create, params: { post: attributes }
       expect(response).to render_template(:new)
-    end
-  end
-
-  describe '#edit' do
-    it 'returns http success' do
-      get :edit, params: { id: post_item.slug }
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe '#update' do
-    context 'when accepted' do
-      before { put :update, params: { id: post_item.slug, post: attributes } }
-
-      it 'change name' do
-        expect(post_item.reload.name).to eq(name)
-      end
-
-      it 'redirect to posts' do
-        expect(response).to redirect_to(backoffice_posts_path)
-      end
-    end
-
-    it 'update is fail' do
-      attributes[:name] = ''
-      put :update, params: { id: post_item.slug, post: attributes }
-      expect(response).to render_template(:edit)
-    end
-  end
-
-  describe '#destroy' do
-    it 'destroy is redirect_to' do
-      delete :destroy, params: { id: post_item.slug }
-      expect(response).to redirect_to(backoffice_posts_path)
-    end
-
-    it 'destroy is deleted' do
-      expect do
-        delete :destroy, params: { id: post_item.slug }
-      end.to change(Post, :count).by(0)
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_123051) do
+ActiveRecord::Schema.define(version: 2020_12_21_171654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2020_12_09_123051) do
     t.string "token"
     t.boolean "active"
     t.integer "profile"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.string "name"
+    t.date "date_start"
+    t.date "date_end"
+    t.boolean "active", default: false
+    t.integer "kind"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

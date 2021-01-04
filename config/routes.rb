@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     resources :pages, except: :show 
     resources :categories, except: :show
     resources :posts
+    resources :banners do
+      get 'render_html/:id', on: :collection, to: 'banners#banner_render'
+    end
   end
 end
