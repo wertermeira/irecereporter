@@ -3,12 +3,17 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::PagesController, type: :controller do
+  let(:admin) { create(:admin) }
   let(:page) { create(:page) }
   let(:name) { Faker::Name.name }
   let(:attributes) do
     {
       name: name
     }
+  end
+
+  before do
+    session[:user_id] = admin.id
   end
 
   describe '#index' do

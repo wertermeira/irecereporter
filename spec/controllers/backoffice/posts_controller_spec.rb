@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::PostsController, type: :controller do
+  let(:admin) { create(:admin) }
   let(:categories) { create_list(:category, rand(2..10)) }
   let(:attributes) do
     {
@@ -13,6 +14,10 @@ RSpec.describe Backoffice::PostsController, type: :controller do
       feature: %w[true false].sample,
       category_ids: categories.pluck(:id)
     }
+  end
+
+  before do
+    session[:user_id] = admin.id
   end
 
   describe '#create' do

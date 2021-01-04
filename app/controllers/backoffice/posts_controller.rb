@@ -5,6 +5,7 @@ module Backoffice
 
     def index
       @q = Post.ransack(params[:q])
+      @q.sorts = 'id desc' if @q.sorts.empty?
       @posts = @q.result.page(params[:page]).per(params[:size])
     end
 

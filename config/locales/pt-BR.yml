@@ -1,5 +1,21 @@
 ---
 pt-BR:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>
+      one_page:
+        display_entries:
+          one: Exibindo <b>1</b> %{entry_name}
+          other: Exibindo <b>%{count}</b> %{entry_name}
+          zero: Nenhum %{entry_name} encontrado
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      next: Próximo &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"
   controller:
     messages:
       success:
@@ -7,6 +23,35 @@ pt-BR:
         update: Atualizado com sucesso
         destroy: Deletado com sucesso
   activerecord:
+    models:
+      post: Notícia
+      category: Categoria
+      page: Página
+      admin: Admin
+      banner: Banner
+    attributes:
+      category:
+        name: Nome
+      page:
+        name: Nome
+      admin: 
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
+        active: Ativo
+        profile: Perfil
+      post:
+        name: Título
+        cover: Capa
+        image: Imagem
+        subname: Sub Título
+        headline: Manchete
+        summary: Resumo
+        body: Texto
+        active: Ativo
+        feature_post: Destaque
+        url_video: Link do vídeo (youtube)
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

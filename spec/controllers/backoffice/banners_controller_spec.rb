@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::BannersController, type: :controller do
+  let(:admin) { create(:admin) }
   let(:banner) { create(:banner) }
   let(:name) { Faker::Name.name }
   let(:attributes) do
@@ -15,6 +16,10 @@ RSpec.describe Backoffice::BannersController, type: :controller do
       active: true,
       kind: Banner::KINDS.keys.sample.to_s
     }
+  end
+
+  before do
+    session[:user_id] = admin.id
   end
 
   describe '#index' do

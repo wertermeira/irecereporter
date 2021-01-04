@@ -3,6 +3,8 @@
     <tr>
       <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
       <th scope="col"><%= sort_link(@q, :name, 'Título', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :created_at, 'Criado', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :updated_at, 'Atualizado', default_order: :desc) %></th>
       <th scope="col">Capa</th>
       <th scope="col" class='text-center'>Ações</th>
     </tr>
@@ -12,6 +14,8 @@
       <tr>
         <th scope="row"><%= post.id %></th>
         <td><%= post.name %></td>
+        <td><%= post.created_at.time.to_formatted_s(:long) %></td>
+        <td><%= post.updated_at.time.to_formatted_s(:long) %></td>
         <td>
         <%= image_tag(url_for(post.cover.variant(resize: "120x120"))) if post.cover.attached? %>
         </td>

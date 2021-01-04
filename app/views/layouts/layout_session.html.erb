@@ -9,17 +9,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'backoffice', media: 'all' %>
+    <%= stylesheet_link_tag 'session', media: 'all' %>
   </head>
 
-  <body>
-    <%= render partial: 'layouts/partials/header' %>
-    <div role='main' id="page">
-      <div class='container'>
-        <%= yield %>
-      </div>
-    </div>
-
+  <body class='text-center'>
+    <%= yield %>
     <%= javascript_pack_tag 'backoffice' %>
   </body>
 </html>

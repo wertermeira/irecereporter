@@ -1,6 +1,6 @@
 module Backoffice
-  class BannersController < ApplicationController
-    before_action :set_admin, only: %i[show edit update destroy]
+  class BannersController < BackofficeController
+    before_action :set_banner, only: %i[show edit update destroy]
 
     def index
       @q = Banner.ransack(params[:q])
@@ -39,7 +39,7 @@ module Backoffice
 
     private
 
-    def set_admin
+    def set_banner
       @banner = Banner.find(params[:id])
     end
 
