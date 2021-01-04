@@ -4,7 +4,7 @@ RSpec.describe Post, type: :model do
   context 'when db schema' do
     let(:model) { described_class.column_names }
 
-    %w[name slug subname headline body summary active feature].each do |column|
+    %w[name slug subname headline body summary active feature_post].each do |column|
       it "have column #{column}" do
         expect(model).to include(column)
       end
@@ -15,6 +15,14 @@ RSpec.describe Post, type: :model do
     it { is_expected.to belong_to(:page).optional }
     it { is_expected.to have_many(:post_categories).dependent(:destroy) }
     it { is_expected.to have_many(:categories).through(:post_categories) }
+  end
+
+  context 'when validation scope published' do
+    before do
+      create_list(:post, 10, active: %w[true false].sample)
+    end
+
+    it { expect(described_class.published.count).to eq(described_class.where(active: true).count) }
   end
 
   context 'when validation fields' do

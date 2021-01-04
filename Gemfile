@@ -10,8 +10,13 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'active_storage_validations'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'ckeditor'
 gem 'kaminari'
+gem 'mini_magick'
 gem 'ransack'
+# Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML cod
+gem 'youtube_rails'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
