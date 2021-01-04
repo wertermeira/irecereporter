@@ -9,7 +9,7 @@ module Backoffice
     end
 
     def show; end
-    
+
     def new
       @post = Post.new
     end

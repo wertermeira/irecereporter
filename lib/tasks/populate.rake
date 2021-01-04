@@ -9,7 +9,6 @@ namespace :populate do
     end
   end
 
-
   desc 'Populete categoies'
   task categories: :environment do
     rand(10..30).times do
