@@ -10,6 +10,7 @@ require("bootstrap4-toggle/js/bootstrap4-toggle.min.js")
 require("tagsinput")
 require("select2")
 require("custom")
+require("bootstrap/dist/js/bootstrap.bundle.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

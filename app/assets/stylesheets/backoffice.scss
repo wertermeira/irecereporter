@@ -9,7 +9,14 @@
     margin-left: 10px;
   }
 }
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 #page {
   left: 100%;
   padding: 20px;
+  margin-top: 60px;
 }
