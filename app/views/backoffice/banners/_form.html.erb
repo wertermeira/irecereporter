@@ -1,0 +1,9 @@
+<%= simple_form_for([:backoffice, @banner], html: { multipart: true }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :banner, as: :file %>
+  <%= f.input :date_start %>
+  <%= f.input :date_end %>
+  <%= f.input :kind, as: :select, collection: Banner::KINDS.keys, input_html: { class: 'select2' } %>
+  <%= f.input :active, as: :boolean, input_html: { data: { toggle: 'toggle', size: 'sm'} } %>
+  <%= f.button :submit, class: 'btn-success' %>
+<% end %>

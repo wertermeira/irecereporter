@@ -1,0 +1,30 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :name, 'Nome', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :date_start, 'Início', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :date_end, 'Fim', default_order: :desc) %></th>
+      <th scope="col" class='text-center'>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @banners.each do |banner| %>
+      <tr>
+        <th scope="row"><%= banner.id %></th>
+        <td><%= banner.name %></td>
+        <td><%= banner.date_start.to_formatted_s(:long) %></td>
+        <td><%= banner.date_end.to_formatted_s(:long) %></td>
+        <td class='text-center'>
+            <%= link_to 'Ver', backoffice_banner_path(banner), class: 'btn btn-success btn-sm' %>
+            <%= link_to 'Editar', edit_backoffice_banner_path(banner), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Excluir', backoffice_banner_path(banner), method: :delete, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @banners %>
+</div>

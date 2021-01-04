@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
+  helper_method :current_user
+
   def index
-    redirect_to sessions_path if current_user.blank?
+    redirect_to new_session_path if current_user.blank?
   end
 
   private
 
-  def require_user
-    redirect_to sessions_path unless current_user
+  def require_login
+    redirect_to new_session_path unless current_user
   end
 
   def current_user

@@ -11,6 +11,10 @@ RSpec.describe Page, type: :model do
     end
   end
 
+  context 'when associations' do
+    it { is_expected.to have_many(:posts).dependent(:nullify) }
+  end
+
   context 'when validation' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_length_of(:name).is_at_most(150) }
