@@ -31,6 +31,5 @@ module Backoffice
     def gallery_params
       params.require(:gallery).permit(:post_id, :image)
     end
-    
   end
 end
