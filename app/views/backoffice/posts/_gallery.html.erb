@@ -1,0 +1,12 @@
+<div class='row gallery'>
+  <% @post.galleries.each do |row| %>
+    <div class='col-md-3'>
+      <div class="card">
+        <%= image_tag(url_for(row.image.variant(resize: '500x500')), class: 'card-img-top') %>
+        <div class="card-body text-center">
+          <%= link_to  'deletar', backoffice_gallery_path(row), class: 'btn btn-sm btn-danger', method: 'delete' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

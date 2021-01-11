@@ -1,0 +1,9 @@
+<h1><%= @post.name %></h1>
+<form action="<%= backoffice_galleries_url %>" class="dropzone" id='imageUpload' method='post'>
+  <div class="dz-message" data-dz-message><span>Arraste ou clique para procurar as imagens</span></div>
+  <input type='hidden' value="<%= @post.id %>" name="[gallery]post_id">
+  <div class="fallback">
+    <input name="image" type="file" multiple />
+  </div>
+</form>
+<%= render partial: 'gallery' %>

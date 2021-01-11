@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resources :admins
     resources :pages, except: :show 
     resources :categories, except: :show
-    resources :posts
-    resources :gallery, only: %i[create show destroy]
+    resources :posts do
+      get ':id/gallery', to: 'posts#gallery', on: :collection, as: :gallery
+    end
+    resources :galleries, only: %i[show create destroy]
     resources :banners do
       get 'render_html/:id', on: :collection, to: 'banners#banner_render'
     end

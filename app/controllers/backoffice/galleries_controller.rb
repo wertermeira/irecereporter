@@ -1,23 +1,25 @@
 module Backoffice
   class GalleriesController < BackofficeController
     before_action :set_gallery_item, only: %i[show destroy]
+    skip_before_action :verify_authenticity_token, only: :create
 
     def show
+      render layout: false
     end
 
     def create
-      @gallery = Gallery.create(allery_params)
+      @gallery = Gallery.create(gallery_params)
       if @gallery.save
         render json: @gallery, status: :created
-      else 
+      else
         render json: @gallery.errors, status: :unprocessable_entity
       end
     end
 
     def destroy
-      path = @gallery.post.present? ? backoffice_post_path(post) : backoffice_galleries_path
-      @page.destroy
-      redirect_to path, notice: 'Excluida com successo'
+      post = @gallery.post
+      @gallery.destroy
+      redirect_to backoffice_post_path(post), notice: 'Excluida com successo'
     end
 
     private

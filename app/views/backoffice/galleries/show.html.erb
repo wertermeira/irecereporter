@@ -1,0 +1,6 @@
+<div class="card">
+  <%= image_tag(url_for(@gallery.image.variant(resize: '500x500')), class: 'card-img-top') %>
+  <div class="card-body text-center">
+    <%= link_to  'deletar', backoffice_gallery_path(@gallery), class: 'btn btn-sm btn-danger', method: 'delete' %>
+  </div>
+</div>
