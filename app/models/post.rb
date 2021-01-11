@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_categories
 
   scope :published, -> { where(active: true) }
+  scope :feature_posts, -> { where(feature_post: true, active: true) }
 
   extend FriendlyId
   friendly_id :name, use: :slugged

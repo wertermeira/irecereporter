@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       get 'render_html/:id', on: :collection, to: 'banners#banner_render'
     end
   end
+
+  root to: 'frontend/home#index'
 end

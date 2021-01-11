@@ -1,0 +1,15 @@
+<section class='features'>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+        <div class='post'>
+          <%= content_tag(:div, image_tag(url_for(post.cover.variant(combine_options: { resize: '256x256^', extent: '256x256', gravity: 'Center' } ))), class: 'img-feature') %>
+          <%= content_tag(:span, post.name) %>
+          <span>
+            <%= post.categories.pluck(:name).join(', ') %>
+          </span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>
