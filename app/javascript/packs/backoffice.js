@@ -11,6 +11,7 @@ require("tagsinput")
 require("select2")
 require("custom")
 require("bootstrap/dist/js/bootstrap.bundle.js")
+require("dropzone/dist/dropzone.js")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
