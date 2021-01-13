@@ -56,8 +56,9 @@ module Backoffice
 
     def post_params
       params.require(:post).permit(:name, :subname, :headline,
-                                   :cover, :image, :body, :active, :url_video,
-                                   :feature_post, :summary, :tag_list, :page_id, category_ids: [])
+                                   :cover, :image, :body, :active, :url_video, :image_subtitle,
+                                   :cover_subtitle, :feature_post, :summary, :tag_list, :page_id,
+                                   category_ids: [])
     end
   end
 end

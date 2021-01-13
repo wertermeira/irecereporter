@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_131849) do
+ActiveRecord::Schema.define(version: 2021_01_13_142445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_131849) do
     t.boolean "feature_post", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cover_subtitle"
+    t.string "image_subtitle"
     t.index ["page_id"], name: "index_posts_on_page_id"
   end
 

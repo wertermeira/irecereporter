@@ -11,12 +11,14 @@
   <div class='row'>
    <div class='col-md-6'>
     <%= f.input :image, as: :file %>
+    <%= f.input :image_subtitle %>
     <% if @post.image.attached? %>
       <%= image_tag(url_for(@post.image.variant(resize: '120x120'))) %>
     <% end %>
    </div>
     <div class='col-md-6'>
       <%= f.input :cover, as: :file %>
+      <%= f.input :cover_subtitle %>
       <% if @post.cover.attached? %>
         <%= image_tag(url_for(@post.cover.variant(resize: '120x120'))) %>
       <% end %>
