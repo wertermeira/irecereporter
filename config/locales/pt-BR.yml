@@ -45,6 +45,8 @@ pt-BR:
         name: Título
         cover: Capa
         image: Imagem
+        image_subtitle: Legenda Imagem
+        cover_subtitle: Legenda Capa
         subname: Sub Título
         headline: Manchete
         summary: Resumo

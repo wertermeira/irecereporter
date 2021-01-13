@@ -17,9 +17,8 @@ module Backoffice
     end
 
     def destroy
-      post = @gallery.post
       @gallery.destroy
-      redirect_to backoffice_post_path(post), notice: 'Excluida com successo'
+      redirect_to gallery_backoffice_posts_path(@gallery.post_id), notice: 'Excluida com successo'
     end
 
     private
