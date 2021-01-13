@@ -1,0 +1,18 @@
+<div class='menu w-100 d-flex flex-column'>
+  <div class='strip w-100'>
+    <div class='container'>
+      <div class='col-md-4'>
+        <%= l Date.current, format: :long %>
+      </div>
+    </div>
+  </div>
+  <div class='container d-flex justify-content-start align-items-center'>
+    <div class='desktop w-100'>
+      <div class='categories'>
+        <nav>
+          <%= render partial: 'layouts/frontend_partials/categories' %>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

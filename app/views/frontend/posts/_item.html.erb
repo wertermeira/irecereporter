@@ -3,7 +3,7 @@
     <div class='col-md-7'>
       <%= link_to content_tag(:h3, post.name), post_path(post) %>
       <%= content_tag(:summary, post.summary) if post.summary.present? %>
-      <%= content_tag(:span, post.created_at.to_formatted_s(:long)) %>
+      <%= content_tag(:span, l(post.created_at, format: :simple_long)) %>
     </div>
     <div class='col-md-5'>
       <%= image_tag(
