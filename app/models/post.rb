@@ -6,6 +6,7 @@ class Post < ApplicationRecord
 
   has_many :post_categories, dependent: :destroy
   has_many :categories, through: :post_categories
+  has_many :galleries, dependent: :destroy
 
   scope :published, -> { where(active: true) }
   scope :feature_posts, -> { where(feature_post: true, active: true) }
@@ -17,7 +18,7 @@ class Post < ApplicationRecord
   has_one_attached :cover
 
   validates :name, :body, presence: true
-  validates :name, :subname, length: { maximum: 140 }
+  validates :name, :subname, :cover_subtitle, :image_subtitle, length: { maximum: 140 }
   validates :headline, length: { maximum: 100 }
   validates :summary, length: { maximum: 250 }
   validates :cover, :image, content_type: %w[image/png image/gif image/jpg image/jpeg], size: { less_than: 4.megabytes }

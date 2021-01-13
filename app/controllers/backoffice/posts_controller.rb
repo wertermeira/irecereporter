@@ -1,6 +1,6 @@
 module Backoffice
   class PostsController < BackofficeController
-    before_action :set_post, only: %i[update edit show destroy]
+    before_action :set_post, only: %i[update edit show destroy gallery]
     before_action :set_categories_and_pages, only: %i[edit new create update]
 
     def index
@@ -22,6 +22,10 @@ module Backoffice
       else
         render :new
       end
+    end
+
+    def gallery
+      render layout: false if request.xhr?
     end
 
     def edit; end
@@ -52,8 +56,9 @@ module Backoffice
 
     def post_params
       params.require(:post).permit(:name, :subname, :headline,
-                                   :cover, :image, :body, :active, :url_video,
-                                   :feature_post, :summary, :tag_list, :page_id, category_ids: [])
+                                   :cover, :image, :body, :active, :url_video, :image_subtitle,
+                                   :cover_subtitle, :feature_post, :summary, :tag_list, :page_id,
+                                   category_ids: [])
     end
   end
 end

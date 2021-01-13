@@ -1,3 +1,4 @@
+<%= render partial: 'backoffice/shared/header_add', locals: { path: new_backoffice_page_path } %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -12,6 +13,7 @@
         <th scope="row"><%= page.id %></th>
         <td><%= page.name %></td>
         <td class='text-center'>
+            <%= link_to 'Posts', backoffice_posts_path(q: { page_id_eq: page.id }), class: 'btn btn-info btn-sm' %>
             <%= link_to 'Editar', edit_backoffice_page_path(page), class: 'btn btn-primary btn-sm' %>
             <%= link_to 'Excluir', backoffice_page_path(page), method: :delete, class: 'btn btn-danger btn-sm' %>
         </td>
