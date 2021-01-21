@@ -1,5 +1,10 @@
 <ul>
   <% @categories.each do |category| %>
-    <%= link_to category.name, posts_path(q: {post_categories_category_slug_eq: category.slug }) %>
+    <li>
+      <%= link_to category.name, posts_path(q: {post_categories_category_slug_eq: category.slug }) %>
+    </li>
   <% end %>
+  <li>
+    <%= link_to 'Contato', '#'%>
+  </li>
 </ul>

@@ -1,15 +1,32 @@
-<div class='menu w-100 d-flex flex-column'>
-  <div class='strip w-100'>
+<div class='menu w-100'>
+  <div class='strip d-flex justify-content-start align-items-center'>
     <div class='container'>
-      <div class='col-md-4'>
-        <%= l Date.current, format: :long %>
+      <div class='row'>
+        <div class='col-6 time_current'>
+          <span class='d-none d-lg-block'><%= l Date.current, format: :long %></span>
+          <span class='d-block d-lg-none'><%= l Date.current, format: :short_with_day %></span>
+        </div>
+        <div class='col-6 text-right network'>
+          <a href='#'>
+            <i class='fab fa-lg fa-instagram-square'></i>
+          </a>
+          <a href='#'>
+            <i class='fab fa-lg fa-facebook-square'></i>
+          </a>
+          <a href='#'>
+            <i class='fab fa-lg fa-youtube-square'></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
   <div class='container d-flex justify-content-start align-items-center'>
     <div class='desktop w-100'>
-      <div class='categories'>
-        <nav>
+      <div class='w-100 text-center logo'>
+        <%= link_to image_tag('logo/normal.png'), root_path(ref: :logo) %>
+      </div>
+      <div class='categories w-100 text-center'>
+        <nav class='font-default font-weight-500'>
           <%= render partial: 'layouts/frontend_partials/categories' %>
         </nav>
       </div>
