@@ -99,6 +99,10 @@ h1,h2,h3,h4,h5 {
 .web-tv, .entertainment {
   padding: 30px 0;
   margin: 30px 0;
+  time {
+    display: block !important;
+    color: $color_white;
+  }
   .home-category {
     .link-more {
       a {
@@ -113,17 +117,23 @@ h1,h2,h3,h4,h5 {
       color: $color-white;
     }
     a {
-      color: $color_white;
+      color: $color_white !important;
       &:hover {
-        text-decoration: none;
-        span {
-          color: $color_black;
+        h3 {
+          color: $color_black !important;
         }
       }
     }
     summary {
-      color: $color_white;
+      color: darken($color_white, 10%);
     }
+  }
+}
+.home {
+  time {
+    display: none;
+    font-size: 0.7em;
+    margin: 5px 0;
   }
 }
 .title-category {
@@ -138,6 +148,7 @@ h1,h2,h3,h4,h5 {
   font-size: 0.8em;
   a {
     color: $color_gray;
+    text-decoration-line: none;
     &:hover {
       color: $color_black;
     }
@@ -150,20 +161,53 @@ h1,h2,h3,h4,h5 {
       margin-bottom: 15px;
     }
   }
-  a {
-    font-size: 1.2em;
-    color: $color_black;
-    line-height: 1.3em;
-    &:hover {
-      text-decoration: none;
-      span {
-        color: $color_red;
+  h3 {
+      margin: 0;
+  }
+  .post {
+    a {
+      color: $color_black;
+      &:hover {
+        text-decoration: none;
+        h3 {
+          color: $color_red;
+        }
       }
     }
   }
-  summary {
-    font-size: 1.1em;
-    color: $color_gray;
+}
+.title-size {
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+.summary-size {
+  font-size: 1.1em;
+  line-height: 1.2em;
+}
+.horizontal-posts {
+  .post {
+    summary {
+      color: lighten($color_gray, 10%);
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        h3 {
+          color: $color_red_2;
+        }
+      }
+    }
+    span {
+      margin: 15px 0 5px;
+      font-size: 0.8em;
+      display: block;
+      color: $color_red;
+      text-transform: uppercase;
+    }
+    h3 {
+      color: $color_black;
+      margin-bottom: 15px;
+    }
   }
 }
 @include media-breakpoint-up(lg) { 
@@ -216,8 +260,15 @@ h1,h2,h3,h4,h5 {
     }
   }
   .home-category {
+    summary {
+      color: lighten($color_gray, 10%);
+    }
     a {
       display: block;
+      h3 {
+        padding: 10px 0;
+        display: block;
+      }
     }
     .right {
       .post {
@@ -227,7 +278,7 @@ h1,h2,h3,h4,h5 {
         &:first-child {
           &:after {
             content: '';
-            height: 3px;
+            height: 2px;
             background: lighten($color_gray, 30%);
             width: 300px;
             margin-left: -150px;
@@ -235,15 +286,6 @@ h1,h2,h3,h4,h5 {
             left: 50%;
             bottom: 0;
           }
-        }
-        
-      }
-    }
-    .left {
-      a {
-        span {
-          padding: 10px 0;
-          display: block;
         }
       }
     }
