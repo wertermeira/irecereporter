@@ -4,7 +4,7 @@ RSpec.describe Category, type: :model do
   context 'when db schema' do
     let(:model) { described_class.column_names }
 
-    %w[name slug].each do |column|
+    %w[name slug show_on_home].each do |column|
       it "have column #{column}" do
         expect(model).to include(column)
       end
@@ -13,7 +13,8 @@ RSpec.describe Category, type: :model do
 
   context 'when associatios' do
     it { is_expected.to have_many(:post_categories).dependent(:destroy) }
-    it { is_expected.to have_many(:posts).through(:post_categories) }
+    it { is_expected.to have_many(:category_posts).through(:post_categories).source(:post) }
+    it { is_expected.to have_many(:pages_posts).through(:pages).source(:posts) }
   end
 
   context 'when validation' do
