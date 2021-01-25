@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 .vscode/*
+.env
+.env.*
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
