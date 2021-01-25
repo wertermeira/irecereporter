@@ -6,6 +6,8 @@ ruby '2.5.8'
 # project gems
 # https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.4.0'
+# https://github.com/typhoeus/typhoeus
+gem 'typhoeus'
 # https://github.com/heartcombo/simple_form
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
