@@ -42,7 +42,7 @@ module Backoffice
     end
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :show_on_home)
     end
   end
 end

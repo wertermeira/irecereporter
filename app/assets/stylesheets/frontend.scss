@@ -105,11 +105,9 @@ h1,h2,h3,h4,h5 {
   }
   .home-category {
     .link-more {
-      a {
-        color: $color_white;
-        &:hover {
-          color: $color_black;
-        }
+      color: $color_white;
+      &:hover {
+        color: $color_black;
       }
     }
     .title-category {
@@ -133,25 +131,70 @@ h1,h2,h3,h4,h5 {
   time {
     display: none;
     font-size: 0.7em;
-    margin: 5px 0;
+    margin: 0 0 10px 0;
   }
 }
+.home-general {
+  .post {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+    &:after {
+      content: '';
+      height: 2px;
+      background: lighten($color_gray, 30%);
+      width: 300px;
+      margin-left: -150px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+    }
+    a {
+      h3 {
+        font-size: 1em;
+      }
+      text-decoration: none;
+      &:hover {
+        h3 {
+          color: $color_red;
+        }
+      }
+    }
+    img {
+      margin-bottom: 20px;
+    }
+    a {
+      color: $color-black;
+    }
+  }
+}
+.header-category {
+  position: relative;
+}
 .title-category {
-  font-size: 1.8em;
   margin-bottom: 30px;
   display: block;
   border-left: 8px solid $color_red;
   padding-left: 10px;
   text-transform: uppercase;
 }
+.home-category {
+  position: relative;
+}
 .link-more {
+  position: absolute;
+  top: 0;
+  right: 0;
   font-size: 0.8em;
-  a {
-    color: $color_gray;
-    text-decoration-line: none;
-    &:hover {
-      color: $color_black;
-    }
+  color: $color_gray;
+  text-decoration-line: none;
+  &:hover {
+    color: $color_black;
   }
 }
 .home-category {
@@ -180,10 +223,6 @@ h1,h2,h3,h4,h5 {
   font-size: 1.3em;
   line-height: 1.4em;
 }
-.summary-size {
-  font-size: 1.1em;
-  line-height: 1.2em;
-}
 .horizontal-posts {
   .post {
     summary {
@@ -210,7 +249,26 @@ h1,h2,h3,h4,h5 {
     }
   }
 }
-@include media-breakpoint-up(lg) { 
+@include media-breakpoint-up(lg) {
+  .home-general {
+    .header-category .title-category {
+      font-size: 1.6em !important;
+    }
+    .first-post {
+      a {
+        h3 {
+          font-size: 1.2em !important;
+        }
+      }
+    }
+  }
+  .summary-size {
+    font-size: 1.1em;
+    line-height: 1.4em;
+  }
+  .title-category {
+    font-size: 1.8em;
+  }
   .inner-m-10 {
     margin-right: -10px !important;
     margin-left: -10px !important;
@@ -260,6 +318,13 @@ h1,h2,h3,h4,h5 {
     }
   }
   .home-category {
+    .home-general {
+      .header-category {
+        .title-category {
+          font-size: 1.6em !important;
+        }
+      }
+    }
     summary {
       color: lighten($color_gray, 10%);
     }
@@ -291,7 +356,33 @@ h1,h2,h3,h4,h5 {
     }
   }
 }
-@include media-breakpoint-down(lg) { 
+@include media-breakpoint-down(lg) {
+  .img-fluid {
+    width: 100%;
+  }
+  .features {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .title-size {
+    font-size: 1.1em !important;
+    margin-bottom: 10px !important;
+  }
+  .summary-size {
+    font-size: 1em !important;
+    line-height: 1.4em;
+  }
+  .home-category {
+    .post {
+      img {
+        margin-bottom: 15px;
+      }
+      margin-bottom: 40px !important;
+    }
+  }
+  .title-category {
+    font-size: 1.3em;
+  }
   .menu {
     margin-bottom: 30px;
     .strip {

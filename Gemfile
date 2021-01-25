@@ -42,10 +42,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'brakeman'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
-  gem "rack-livereload", group: :development
-  gem 'brakeman'
+  gem 'rack-livereload', group: :development
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'

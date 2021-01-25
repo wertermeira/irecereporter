@@ -51,6 +51,7 @@ pt-BR:
         name: Título
         cover: Capa
         image: Imagem
+        category_ids: Categorias
         image_subtitle: Legenda Imagem
         cover_subtitle: Legenda Capa
         subname: Sub Título

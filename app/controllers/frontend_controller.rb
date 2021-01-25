@@ -4,6 +4,6 @@ class FrontendController < ActionController::Base
   private
 
   def set_categories
-    @categories = Category.order(name: :asc).all
+    @categories = Category.only_home.order(name: :asc).all
   end
 end

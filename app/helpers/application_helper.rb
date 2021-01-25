@@ -18,4 +18,8 @@ module ApplicationHelper
   def by_category(slug)
     Category.find_by(slug: slug)
   end
+
+  def posts_by_category(category: category, limit: 3)
+    Post.published.by_category(category).limit(limit).order(id: :desc)
+  end
 end

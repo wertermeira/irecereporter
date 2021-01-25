@@ -13,6 +13,7 @@ AllCops:
     - '.git/**/*'
     - 'config/**/*'
     - 'db/**/*'
+    - 'Guardfile'
     - 'bin/**/*'
     - 'spec/support/*'
     - 'spec/spec_helper.rb'

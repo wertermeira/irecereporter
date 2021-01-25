@@ -1,7 +1,7 @@
 <div class='w-100 horizontal-posts'>
   <%= render partial: 'frontend/home/includes/header_category', locals: { item: item } %>
   <div class='row'>
-    <% item.posts.published.limit(3).each_with_index do |post| %>
+    <% posts_by_category(category: item).each_with_index do |post| %>
       <div class='col-lg-4 post'>
         <a href='#'>
           <%= image_tag(url_for(post.cover.variant(combine_options: { resize: '360x200^', extent: '360x200', gravity: 'Center' })), class: 'img-fluid') if post.cover.attached? %>

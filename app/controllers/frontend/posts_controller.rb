@@ -8,8 +8,7 @@ module Frontend
       @posts = @q.result.page(params[:page]).per(params[:size])
     end
 
-    def show
-    end
+    def show; end
 
     private
 
