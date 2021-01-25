@@ -1,5 +1,5 @@
 class HgWeatherService
-  attr_accessor :city, :state 
+  attr_accessor :city, :state
 
   def initialize(city: 'Irecê', state: 'Ba')
     @city = city
@@ -7,12 +7,12 @@ class HgWeatherService
   end
 
   def call
-    get_weather.body if get_weather.body.present?
+    weather_json.body if weather_json.body.present?
   end
 
   private
 
-  def get_weather
+  def weather_json
     Typhoeus.get(endpoint)
   end
 
