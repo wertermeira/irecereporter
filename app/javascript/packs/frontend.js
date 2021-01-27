@@ -2,5 +2,7 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
-require("@fortawesome/fontawesome-free/js/all.js").start()
+require('jquery')
+require('@fortawesome/fontawesome-free/js/all.js')
+require("custom_frontend")
+require('owl.carousel2/dist/owl.carousel.js')

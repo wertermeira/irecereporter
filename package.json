@@ -12,6 +12,7 @@
     "dropzone": "^5.7.2",
     "jquery": "^3.5.1",
     "jquery-slim": "^3.0.0",
+    "owl.carousel2": "^2.2.1",
     "select2": "^4.0.13"
   },
   "version": "0.1.0",

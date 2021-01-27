@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import Dropzone from 'dropzone'
 
-$(document).ready(function(){
+$(function() {
   $('.tagsinput').tagsInput();
   $('.select2').select2({
     theme: 'bootstrap4'

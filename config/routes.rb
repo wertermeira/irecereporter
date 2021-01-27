@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :sessions, only: %i[new create destroy]
+  namespace :services do
+    resources :weather, only: :index
+  end
   namespace :backoffice do
     resources :admins
     resources :pages, except: :show 
