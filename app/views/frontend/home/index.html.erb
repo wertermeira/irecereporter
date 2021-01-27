@@ -1,0 +1,26 @@
+<div class='w-100 home'>
+  <div class='container'>
+    <%= render partial: 'frontend/home/includes/features', locals: { posts: @features } %>
+    <%= render partial: 'frontend/home/includes/by_category', locals: { item: by_category('irece') } %>
+  </div>
+  <div class='w-100 web-tv bg-color-red'>
+    <div class='container'>
+      <%= render partial: 'frontend/home/includes/by_category', locals: { item: by_category('bahia') } %>
+    </div>
+  </div>
+  <div class='container'>
+    <%= render partial: 'frontend/home/includes/by_category', locals: { item: by_category('brasil-e-mundo') } %>
+    <%= render partial: 'frontend/home/includes/horizontal_posts', locals: { item: by_category('eleicoes-regionais-2020') } %>
+  </div>
+  <div class='w-100 entertainment bg-color-red-2'>
+    <div class='container'>
+      <%= render partial: 'frontend/home/includes/by_category', locals: { item: by_category('bahia') } %>
+    </div>
+  </div>
+  <div class='container'>
+    <%= render 'frontend/home/includes/columns' %>
+    <div class='w-100 home-carousel'>
+      <%= render 'frontend/home/includes/top_posts' %>
+    </div>
+  </div>
+</div>

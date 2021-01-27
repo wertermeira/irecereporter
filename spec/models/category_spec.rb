@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
 
   context 'when associatios' do
     it { is_expected.to have_many(:post_categories).dependent(:destroy) }
-    it { is_expected.to have_many(:category_posts).through(:post_categories).source(:post) }
+    it { is_expected.to have_many(:posts).through(:post_categories) }
     it { is_expected.to have_many(:pages_posts).through(:pages).source(:posts) }
   end
 

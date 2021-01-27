@@ -5,6 +5,7 @@ ruby '2.5.8'
 
 # project gems
 # https://github.com/norman/friendly_id
+gem 'browser'
 gem 'friendly_id', '~> 5.4.0'
 # https://github.com/typhoeus/typhoeus
 gem 'typhoeus'
@@ -44,6 +45,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'brakeman'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'rack-livereload', group: :development
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'

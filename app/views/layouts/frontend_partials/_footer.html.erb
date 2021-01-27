@@ -1,0 +1,17 @@
+<footer class='w-100 font-default'>
+  <div class='container'>
+    <div class='row d-flex justify-content-between'>
+      <div class='col-lg-4'>
+        <%= link_to image_tag('logo/normal.png'), root_path(ref: :logo), class: 'logo' %>
+      </div>
+      <div class='col-lg-4 d-flex flex-column justify-content-between'>
+        <div class='section-title'>
+          <span>Categorias</span>
+        </div>
+        <div class='categories'>
+          <%= render partial: 'layouts/frontend_partials/categories' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

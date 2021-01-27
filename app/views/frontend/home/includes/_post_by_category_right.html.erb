@@ -1,0 +1,15 @@
+<div class='post'>
+  
+  <div class='row d-flex flex-column-reverse flex-lg-row'>
+    <div class='col-lg-7'>
+        <%= link_to content_tag(:h3, post.name, class: 'font-default font-weight-medium title-size'), post_url(post) %>
+        <%= content_tag(:time, time_ago_in_words(post.created_at))%>
+        <%= content_tag(:summary, post.summary, class: 'font-default font-weight-regular summary-size') if post.summary.present? %>
+    </div>
+    <div class='col-lg-5'>
+      <a href='<%= post_url(post) %>'>
+          <%= content_tag(:div, image_tag(url_for(post.cover.variant(combine_options: { resize: '555x289^', extent: '555x289', gravity: 'Center' })), class: 'img-fluid')) if post.cover.attached? %>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<li>
+  <article class='row'>
+    <div class='col-md-7'>
+      <%= link_to content_tag(:h3, post.name), post_path(post) %>
+      <%= content_tag(:summary, post.summary) if post.summary.present? %>
+      <%= content_tag(:span, l(post.created_at, format: :simple_long)) %>
+    </div>
+    <div class='col-md-5'>
+      <%= image_tag(
+        url_for(
+          post.cover.variant(
+            combine_options: { resize: '320x320^', extent: '320x200', gravity: 'Center' }
+          )
+        ), class: 'w-100'
+      ) if post.cover.attached? %>
+    </div>
+  </article>
+</li>
