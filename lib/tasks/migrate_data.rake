@@ -4,7 +4,7 @@ namespace :migrate_data do
   task posts: :environment do
     p "start #{Time.current.to_s(:time)}"
     old_post = OldPosts
-    results = old_post.posts(limit: 10_000)
+    results = old_post.posts(limit: 5000)
     results.each do |row|
       data = {
         name: row['title'], subname: row['smalltitle'],
