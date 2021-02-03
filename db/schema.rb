@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_235017) do
+ActiveRecord::Schema.define(version: 2021_01_27_194457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,15 @@ ActiveRecord::Schema.define(version: 2021_01_23_235017) do
     t.index ["post_id"], name: "index_post_categories_on_post_id"
   end
 
+  create_table "post_hits", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.date "hit_day"
+    t.integer "hits", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_hits_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.bigint "page_id"
     t.string "name"
@@ -162,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_01_23_235017) do
   add_foreign_key "pages", "categories"
   add_foreign_key "post_categories", "categories"
   add_foreign_key "post_categories", "posts"
+  add_foreign_key "post_hits", "posts"
   add_foreign_key "posts", "pages"
   add_foreign_key "taggings", "tags"
 end

@@ -1,0 +1,20 @@
+version: '3.3'
+volumes:
+  data:
+services:
+  db:
+    image: mysql:5.6
+    ports:
+      - "3320:3306"
+    volumes:
+      - data:/var/lib/mysql
+    env_file:
+      - ./.env.development
+  app:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - db
+    env_file:
+      - ./.env.development
+    ports:
+      - 80:80

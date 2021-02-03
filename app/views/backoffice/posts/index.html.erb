@@ -14,13 +14,13 @@
     <% @posts.each do |post| %>
       <tr>
         <th scope="row"><%= post.id %></th>
-        <td><%= post.name %></td>
+        <td><%= post.name.truncate(100, separator: ' ') %></td>
         <td><%= post.created_at.time.to_formatted_s(:long) %></td>
         <td><%= post.updated_at.time.to_formatted_s(:long) %></td>
         <td>
         <%= image_tag(url_for(post.cover.variant(resize: "120x120"))) if post.cover.attached? %>
         </td>
-        <td class='text-center'>
+        <td class='text-center'style="width:  20%">
             <%= link_to 'Exibir', backoffice_post_path(post), class: 'btn btn-success btn-sm' %>
             <%= link_to 'Editar', edit_backoffice_post_path(post), class: 'btn btn-primary btn-sm' %>
             <%= link_to 'Galeria', gallery_backoffice_posts_path(post), class: 'btn  btn-info btn-sm' %>

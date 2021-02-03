@@ -13,12 +13,15 @@ gem 'typhoeus'
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'active_storage_validations'
+# gem 'aws-sdk-s3', require: false
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ckeditor'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'ransack'
 # Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML cod
+gem 'redis', '~> 4.0'
+gem 'sidekiq', '6.0.4'
 gem 'youtube_rails'
 # end
 
@@ -26,6 +29,8 @@ gem 'youtube_rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# remove after migrate
+gem 'mysql2', '~> 0.5.3'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -39,6 +44,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# The official AWS SDK for Ruby.
+gem 'aws-sdk-s3', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
