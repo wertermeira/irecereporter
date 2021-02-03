@@ -4,7 +4,8 @@ RSpec.describe Post, type: :model do
   context 'when db schema' do
     let(:model) { described_class.column_names }
 
-    %w[name slug subname headline body summary active feature_post].each do |column|
+    %w[name slug subname headline body summary
+       active feature_post cover_subtitle image_subtitle].each do |column|
       it "have column #{column}" do
         expect(model).to include(column)
       end
@@ -29,8 +30,9 @@ RSpec.describe Post, type: :model do
     %i[name body].each do |field|
       it { is_expected.to validate_presence_of(field) }
     end
-    it { is_expected.to validate_length_of(:name).is_at_most(140) }
-    it { is_expected.to validate_length_of(:subname).is_at_most(140) }
+    %i[name subname cover_subtitle image_subtitle].each do |field|
+      it { is_expected.to validate_length_of(field).is_at_most(140) }
+    end
     it { is_expected.to validate_length_of(:headline).is_at_most(100) }
     it { is_expected.to validate_length_of(:summary).is_at_most(250) }
   end
@@ -39,7 +41,7 @@ RSpec.describe Post, type: :model do
     let(:type_allow) { %w[image/png image/gif image/jpg image/jpeg] }
 
     %i[image cover].each do |field|
-      it { is_expected.to validate_size_of(field).less_than(4.megabytes) }
+      it { is_expected.to validate_size_of(field).less_than(10.megabytes) }
       it { is_expected.to validate_size_of(field) }
       it { is_expected.to validate_content_type_of(field).allowing(type_allow) }
       it { is_expected.not_to validate_content_type_of(field).allowing(%w[image/tif doc/pdf]) }

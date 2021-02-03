@@ -1,0 +1,7 @@
+<div class='row home-general'>
+  <% %w[irece bahia brasil-e-mundo].each do |category| %>
+    <div class='col-lg-4'>
+      <%= render partial: 'frontend/home/includes/column_category', locals: { category: by_category(category) } %>
+    </div>
+  <% end %>
+</div>

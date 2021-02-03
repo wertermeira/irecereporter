@@ -1,0 +1,27 @@
+<header class='page-header'>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%= menu_current_link if controller_name == 'posts' %>">
+          <a class="nav-link" href="<%= backoffice_posts_url %>">Posts</a>
+        </li>
+        <li class="nav-item <%= menu_current_link if controller_name == 'banners' %>">
+          <a class="nav-link" href="<%= backoffice_banners_url %>">Banners</a>
+        </li>
+        <li class="nav-item <%= menu_current_link if controller_name == 'categories' %>">
+          <a class="nav-link" href="<%= backoffice_categories_url %>">Categorias</a>
+        </li>
+        <li class="nav-item <%= menu_current_link if controller_name == 'pages' %>">
+          <a class="nav-link" href="<%= backoffice_pages_url %>">Páginas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= session_path('me')%>" data-method='delete'>Sair</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

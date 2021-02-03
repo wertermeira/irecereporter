@@ -5,23 +5,24 @@ ruby '2.5.8'
 
 # project gems
 # https://github.com/norman/friendly_id
+gem 'browser'
 gem 'friendly_id', '~> 5.4.0'
+# https://github.com/typhoeus/typhoeus
+gem 'typhoeus'
 # https://github.com/heartcombo/simple_form
 gem 'simple_form'
 # https://github.com/activerecord-hackery/ransack
 gem 'active_storage_validations'
 # gem 'aws-sdk-s3', require: false
-gem 'kaminari'
-gem 'ransack'
-gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'kaminari'
-gem 'ransack'
 gem 'ckeditor'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'ransack'
 # Helper to read in YouTube urls and parse the video id and generate the youtube embed HTML cod
-gem 'youtube_rails'
-gem 'sidekiq', '6.0.4'
 gem 'redis', '~> 4.0'
+gem 'sidekiq', '6.0.4'
+gem 'youtube_rails'
 # end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,18 +44,24 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# The official AWS SDK for Ruby.
+gem 'aws-sdk-s3', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'brakeman'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'rack-livereload', group: :development
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'fasterer'
+  gem 'rack_session_access'
   gem 'rails-controller-testing'
   gem 'rb-readline'
   gem 'rspec-rails'

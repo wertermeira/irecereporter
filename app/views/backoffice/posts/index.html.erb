@@ -1,8 +1,11 @@
+<%= render partial: 'backoffice/shared/header_add', locals: { path: new_backoffice_post_path } %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col"><%= sort_link(@q, :id, '#', default_order: :desc) %></th>
       <th scope="col"><%= sort_link(@q, :name, 'Título', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :created_at, 'Criado', default_order: :desc) %></th>
+      <th scope="col"><%= sort_link(@q, :updated_at, 'Atualizado', default_order: :desc) %></th>
       <th scope="col">Capa</th>
       <th scope="col" class='text-center'>Ações</th>
     </tr>
@@ -12,12 +15,15 @@
       <tr>
         <th scope="row"><%= post.id %></th>
         <td><%= post.name.truncate(100, separator: ' ') %></td>
+        <td><%= post.created_at.time.to_formatted_s(:long) %></td>
+        <td><%= post.updated_at.time.to_formatted_s(:long) %></td>
         <td>
         <%= image_tag(url_for(post.cover.variant(resize: "120x120"))) if post.cover.attached? %>
         </td>
         <td class='text-center'style="width:  20%">
             <%= link_to 'Exibir', backoffice_post_path(post), class: 'btn btn-success btn-sm' %>
             <%= link_to 'Editar', edit_backoffice_post_path(post), class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Galeria', gallery_backoffice_posts_path(post), class: 'btn  btn-info btn-sm' %>
             <%= link_to 'Excluir', backoffice_post_path(post), method: :delete, class: 'btn btn-danger btn-sm' %>
         </td>
       </tr>

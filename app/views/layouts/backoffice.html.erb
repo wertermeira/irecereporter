@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="wertermeira@gmail.com">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +13,8 @@
   </head>
 
   <body>
-    <div id="page">
+    <%= render partial: 'layouts/partials/header' %>
+    <div role='main' id="page">
       <div class='container'>
         <%= yield %>
       </div>

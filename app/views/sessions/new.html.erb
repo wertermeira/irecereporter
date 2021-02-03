@@ -1,0 +1,17 @@
+<div class='text-center page-login'>
+  <%= simple_form_for(:session, url: :sessions, method: :post, class: "form-signin") do |f| %>
+    <h1 class="h3 mb-3 font-weight-bold">Por favor o login</h1>
+    <%= f.input :email, as: :email, label: false, placeholder: "E-mail", label_html: { class: 'sr-only' } %>
+    <%= f.input :password, as: :password, label: false, placeholder: "Senha", label_html: { class: 'sr-only' } %>
+    <%= f.button :button, class: 'btn-lg btn-primary btn-block' do %>
+      Login
+    <% end %>
+  <% end %>
+  <% if @validation&.errors.present? %>
+    <div class='alert alert-danger'>
+    <% @validation.errors.each do |attr, error| %>
+      <%= attr %>: <%= error %></br>
+    <% end %>
+    </div>
+  <% end %>
+</div>

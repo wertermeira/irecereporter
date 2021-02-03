@@ -1,0 +1,11 @@
+
+<div class='posts-list list-group'>
+  <ul>
+    <% @posts.each do |post|  %>
+      <%= render partial: 'frontend/posts/item', locals: { post: post } %>
+    <% end %>
+  </ul>
+  <div class='paginate w-100 text-center'>
+    <%= paginate @posts %>
+  </div>
+</div>

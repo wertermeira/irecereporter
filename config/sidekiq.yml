@@ -1,10 +1,10 @@
 ---
-:concurrency: 3
+:concurrency: 2
 production:
   :concurrency: <%= ENV.fetch("RAILS_SIDEKIQ_CONCURRENCY") { 1 } %>
 :queues:
+  - active_storage_analysis
+  - active_storage_purge
   - default
   - mailers
   - low
-  - active_storage_analysis
-  - active_storage_purge

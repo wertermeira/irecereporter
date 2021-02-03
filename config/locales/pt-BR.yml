@@ -1,5 +1,27 @@
 ---
 pt-BR:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>
+      one_page:
+        display_entries:
+          one: Exibindo <b>1</b> %{entry_name}
+          other: Exibindo <b>%{count}</b> %{entry_name}
+          zero: Nenhum %{entry_name} encontrado
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      next: Próximo &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"
   controller:
     messages:
       success:
@@ -7,6 +29,38 @@ pt-BR:
         update: Atualizado com sucesso
         destroy: Deletado com sucesso
   activerecord:
+    models:
+      post: Notícia
+      category: Categoria
+      page: Página
+      admin: Admin
+      banner: Banner
+    attributes:
+      category:
+        name: Nome
+      page:
+        name: Nome
+      admin: 
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
+        active: Ativo
+        profile: Perfil
+      post:
+        name: Título
+        cover: Capa
+        image: Imagem
+        category_ids: Categorias
+        image_subtitle: Legenda Imagem
+        cover_subtitle: Legenda Capa
+        subname: Sub Título
+        headline: Manchete
+        summary: Resumo
+        body: Texto
+        active: Ativo
+        feature_post: Destaque
+        url_video: Link do vídeo (youtube)
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
@@ -37,17 +91,18 @@ pt-BR:
     - nov
     - dez
     day_names:
-    - domingo
-    - segunda-feira
-    - terça-feira
-    - quarta-feira
-    - quinta-feira
-    - sexta-feira
-    - sábado
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
     formats:
       default: "%d/%m/%Y"
-      long: "%d de %B de %Y"
+      long: "%A, %d de %B de %Y"
       short: "%d de %B"
+      short_with_day: "%A, %d/%m/%Y"
     month_names:
     - 
     - janeiro
@@ -151,13 +206,6 @@ pt-BR:
       header:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
-  helpers:
-    select:
-      prompt: Por favor selecione
-    submit:
-      create: Criar %{model}
-      submit: Salvar %{model}
-      update: Atualizar %{model}
   number:
     currency:
       format:
@@ -227,4 +275,5 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
+      simple_long: "%d/%m/%Y âs %H:%M"
     pm: ''

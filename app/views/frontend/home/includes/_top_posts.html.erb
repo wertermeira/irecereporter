@@ -1,0 +1,17 @@
+<div class='w-100 header-category'>
+  <h2 class='title-category'>As Mais lidas</h2>
+</div>
+<div class="<%= 'owl-carousel owl-theme home-carousel' unless browser.device.mobile? %>">
+  <% @top_posts.each_with_index do |post, index|%>
+    <div class="item">
+      <div class='row d-flex align-lg-items-stretch font-default item-carousel'>
+         <div class='col-2 text-center'>
+            <%= content_tag(:span, index + 1) %>
+         </div>
+         <div class='col-10'>
+          <%= link_to truncate(post.name, length: 70,  separator: ' ', omission: '...'), post_path(post) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

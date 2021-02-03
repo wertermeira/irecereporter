@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Irecê Réporter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'frontend', media: 'all' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600,700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/frontend_partials/header' %>
+    <div class='w-100' id='container_page'>
+      <%= yield %>
+    </div>
+    <%= render partial: 'layouts/frontend_partials/footer' %>
+    <%= javascript_pack_tag 'frontend' %>
+  </body>
+</html>

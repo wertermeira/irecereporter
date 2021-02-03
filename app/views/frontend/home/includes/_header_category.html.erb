@@ -1,0 +1,4 @@
+<div class='w-100 header-category'>
+  <h2 class='title-category'><%= item.name %></h2>
+  <%= link_to  '+ Ver Mais', posts_path(q: {post_categories_category_slug_eq: item.slug }), class: 'text-right link-more font-default' %>
+</div>

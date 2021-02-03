@@ -1,0 +1,49 @@
+<header class='menu w-100'>
+  <div class='strip d-flex justify-content-start align-items-center'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-6 col-lg-4 time_current'>
+          <span class='d-none d-lg-block'><%= l Date.current, format: :long %></span>
+          <span class='d-block d-lg-none'><%= l Date.current, format: :short_with_day %></span>
+        </div>
+        <div class='col-6 col-lg-4 header-weather font-default text-right text-lg-center'>
+          
+        </div>
+        <div class='col-lg-4 text-right network d-none d-lg-block'>
+          <a href='#'>
+            <i class='fab fa-lg fa-instagram-square'></i>
+          </a>
+          <a href='#'>
+            <i class='fab fa-lg fa-facebook-square'></i>
+          </a>
+          <a href='#'>
+            <i class='fab fa-lg fa-youtube-square'></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='container d-flex justify-content-start align-items-center'>
+    <div class='desktop w-100'>
+      <div class='row nav-site d-flex justify-content-start align-items-center'>
+        <div class='col-6 col-lg-12 logo text-lg-center text-left'>
+          <%= link_to image_tag('logo/normal.png'), root_path(ref: :logo), class: 'logo-ir d-none d-lg-block' %>
+          <%= link_to image_tag('logo/small.png'), root_path(ref: :logo), class: 'logo-small d-block d-lg-none' %>
+        </div>
+        <div class='col-6 icon-bar text-right d-lg-none'>
+          <a href='#'>
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+      </div>
+      <div class='categories w-100 text-center d-none d-lg-block'>
+        <div class='times-button d-block d-lg-none'>
+          <i class="far fa-window-close"></i>
+        </div>
+        <nav class='font-default font-weight-500'>
+          <%= render partial: 'layouts/frontend_partials/categories' %>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

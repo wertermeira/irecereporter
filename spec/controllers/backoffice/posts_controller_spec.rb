@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Backoffice::PostsController, type: :controller do
+  let(:admin) { create(:admin) }
   let(:categories) { create_list(:category, rand(2..10)) }
   let(:attributes) do
     {

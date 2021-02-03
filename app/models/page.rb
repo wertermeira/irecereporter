@@ -1,4 +1,5 @@
 class Page < ApplicationRecord
+  belongs_to :category, optional: true
   extend FriendlyId
   friendly_id :name, use: :slugged
 

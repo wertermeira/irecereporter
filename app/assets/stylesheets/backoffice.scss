@@ -2,6 +2,7 @@
 @import "bootstrap4-toggle/css/bootstrap4-toggle.min.css";
 @import "select2/src/scss/core.scss";
 @import "@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.css";
+@import "dropzone/dist/dropzone.css";
 @import "tags-input";
 .form-check {
   padding-left: 0;
@@ -9,7 +10,20 @@
     margin-left: 10px;
   }
 }
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 #page {
   left: 100%;
   padding: 20px;
+  margin-top: 60px;
+}
+.gallery {
+  margin-top: 20px;
+}
+.header-add {
+  margin-bottom: 20px;
 }

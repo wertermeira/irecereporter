@@ -17,6 +17,10 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
     }
   end
 
+  before do
+    session[:user_id] = admin.id
+  end
+
   describe '#index' do
     context 'when is success' do
       it 'returns http success' do
@@ -90,7 +94,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
     it 'destroy is deleted' do
       expect do
         delete :destroy, params: { id: admin.id }
-      end.to change(Admin, :count).by(0)
+      end.to change(Admin, :count).by(-1)
     end
   end
 end
