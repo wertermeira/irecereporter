@@ -16,6 +16,10 @@ RSpec.describe Backoffice::PostsController, type: :controller do
     }
   end
 
+  before do
+    session[:user_id] = admin.id
+  end
+
   describe '#create' do
     context 'when created' do
       it 'created' do
